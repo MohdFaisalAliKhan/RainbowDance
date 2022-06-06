@@ -1,10 +1,13 @@
 pipeline {
     agent any
+    environment{
+        NAME="Faisal"
+    }
 
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo "Building..for ${NAME}"
             }
         }
         stage('Test') {
