@@ -1,27 +1,21 @@
-pipeline{
-    agent any{
-        stages{
-          stage('One'){
-            steps{
-                echo "Hello this is faisal"
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
             }
-          }
-          stage('Two'){
-            steps{
-               input("Do you want to proceed?")
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
             }
-          }
-          stage('Three'){
-            when{
-              not{
-                 branch "master"
-              }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
-            steps{
-                echo "Master branch not ditected."
-            }
-          }
         }
     }
-
 }
